@@ -32,7 +32,7 @@ public class Movie {
 
         RequestQueue queue = Volley.newRequestQueue(publicContext);
 
-        StringRequest stringRequest = new StringRequest(Request.Method.GET, api_url,
+        StringRequest stringRequest = new StringRequest(Request.Method.GET, api_url, // Todo: Get multiple items
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
@@ -206,11 +206,11 @@ public class Movie {
         return title[item];
     }
 
-    String rating(int item) { // Todo: Separate them
+    String rating(int item) {
         return rating[item];
     }
 
-    String genre(int item) { // Todo: Separate them
+    String genre(int item) {
         return genre[item];
     }
 
