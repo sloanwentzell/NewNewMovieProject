@@ -9,31 +9,27 @@ public class Controller {
 
 
 
-
-        private TextView appTextView;
+    //    private TextView appTextView;
         private TextView movieTitleTextView;
         private TextView rgrSideTextView;
         private TextView synopsisTextView;
-        private Button previousButton;
-        private Button nextButton;
+     //   private Button previousButton;
+     //   private Button nextButton;
 
 
 
         private Movie movie;
 
-        Controller(Movie m, TextView apt, TextView mttv, TextView rstv, TextView stv, Button pv, Button nb) {
-            appTextView = apt;
+        Controller(Movie m, TextView mttv, TextView rstv, TextView stv) {
             movieTitleTextView = mttv;
             rgrSideTextView = rstv;
             synopsisTextView = stv;
             movie = m;
-            previousButton = pv;
-            nextButton = nb:
 
 
             updateText();
 
-            previousButton.setOnClickListener(new View.OnClickListener() {
+   /*         previousButton.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
  //                   previous();
@@ -47,7 +43,7 @@ public class Controller {
  //                   next();
                     updateText();
                 }
-            });
+            });*/
         }
 
         private void updateText() {
@@ -63,15 +59,12 @@ public class Controller {
 
 
 
-        private void previous() {
-//            .previous();
+      /*  private void previous() {
+//            //.previous();
         }
 
         private void next() {
-//            .next();
-        }
-
-    }
-
+//            //.next();
+        }*/
 
 }
