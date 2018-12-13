@@ -26,9 +26,9 @@ public class Controller {
             movieTitleTextView = mttv;
             genreTextView = rstv;
             synopsisTextView = stv;
-            movie = m;
             ratingTextView = rtv;
             runtimeTextView = rnt;
+            movie = m;
 
 
             updateText();
