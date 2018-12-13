@@ -26,9 +26,11 @@ public class Movie {
     private String api_url = "https://api.themoviedb.org/3/movie/now_playing?api_key=" + api_key + "&language=en-US&page=1";
 
     private Context publicContext;
+    private Controller controller;
 
-    Movie(Context context) {
+    Movie(Context context, Controller ctrl) {
         publicContext = context;
+        controller = ctrl;
 
         RequestQueue queue = Volley.newRequestQueue(publicContext);
 
@@ -58,6 +60,8 @@ public class Movie {
                             System.out.println(genre[0]);
                             System.out.println(synoposis[0]);
                             System.out.println(image[0]);
+
+                            controller.updateText();
 
                         } catch (JSONException error) {
                             error.printStackTrace();
@@ -90,6 +94,9 @@ public class Movie {
                             JSONObject typeContent = releaseArray.getJSONObject(0);
                             rating[0] = getRate(typeContent.getString("type"));
                             System.out.println(rating[0]);
+
+                            controller.updateText();
+
                         } catch (JSONException error) {
                             error.printStackTrace();
                         }
@@ -118,6 +125,7 @@ public class Movie {
                             JSONObject res = new JSONObject(response);
                             runTime[0] = res.getString("runtime");
                             System.out.println(runTime[0]);
+                            controller.updateText();
                         } catch (JSONException error) {
                             error.printStackTrace();
                         }

@@ -13,14 +13,12 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        Movie movie = new Movie(getApplicationContext());
-
         TextView movieTitleTextView = findViewById(R.id.movieTitleTextView);
         TextView genreTextView = findViewById(R.id.genreTextView);
         TextView synopsisTextView = findViewById(R.id.synopsisTextView);
         TextView ratingTextView = findViewById(R.id.ratingTextView);
         TextView runtimeTextView = findViewById(R.id.runtimeTextView);
 
-        controller = new Controller(movie, movieTitleTextView, genreTextView, synopsisTextView, ratingTextView, runtimeTextView);
+        controller = new Controller(getApplicationContext(), movieTitleTextView, genreTextView, synopsisTextView, ratingTextView, runtimeTextView);
     }
 }

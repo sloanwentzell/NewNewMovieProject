@@ -1,5 +1,6 @@
 package com.example.paxton_wentzell.newnewmovieproject;
 
+import android.content.Context;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -22,13 +23,14 @@ public class Controller {
 
         private Movie movie;
 
-        Controller(Movie m, TextView mttv, TextView rstv, TextView stv, TextView rtv, TextView rnt) {
+        Controller(Context context, TextView mttv, TextView rstv, TextView stv, TextView rtv, TextView rnt) {
             movieTitleTextView = mttv;
             genreTextView = rstv;
             synopsisTextView = stv;
             ratingTextView = rtv;
             runtimeTextView = rnt;
-            movie = m;
+
+            movie = new Movie(context, this);
 
 
             updateText();
@@ -50,20 +52,16 @@ public class Controller {
             });*/
         }
 
-        private void updateText() {
+        public void updateText() {
 
             //movie.description(0);
-            System.out.println("updateText()" + movie.description(0));
+
+
             synopsisTextView.setText(movie.description(0));
             genreTextView.setText(movie.genre(0));
             runtimeTextView.setText(movie.runTime(0));
             movieTitleTextView.setText(movie.title(0));
             ratingTextView.setText(movie.rating(0));
-
-
-
-
-
 
 
         }
