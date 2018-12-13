@@ -4,6 +4,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import org.w3c.dom.Text;
+
 public class Controller {
 
 
@@ -11,18 +13,22 @@ public class Controller {
 
 
         private TextView movieTitleTextView;
-        private TextView rgrSideTextView;
+        private TextView runtimeTextView;
         private TextView synopsisTextView;
+        private TextView ratingTextView;
+        private TextView genreTextView;
 
 
 
         private Movie movie;
 
-        Controller(Movie m,  TextView mttv, TextView rstv, TextView stv) {
+        Controller(Movie m, TextView mttv, TextView rstv, TextView stv, TextView rtv, TextView rnt) {
             movieTitleTextView = mttv;
-            rgrSideTextView = rstv;
+            genreTextView = rstv;
             synopsisTextView = stv;
             movie = m;
+            ratingTextView = rtv;
+            runtimeTextView = rnt;
 
 
             updateText();
@@ -47,11 +53,19 @@ public class Controller {
         private void updateText() {
 
             //movie.description(0);
-            movie.description(0);
-            movie.genre(0);
-            movie.runTime(0);
-            movie.title(0);
-            movie.rating(0);
+            System.out.println("updateText()" + movie.description(0));
+            synopsisTextView.setText(movie.description(0));
+            genreTextView.setText(movie.genre(0));
+            runtimeTextView.setText(movie.runTime(0));
+            movieTitleTextView.setText(movie.title(0));
+            ratingTextView.setText(movie.rating(0));
+
+
+
+
+
+
+
         }
 
 
