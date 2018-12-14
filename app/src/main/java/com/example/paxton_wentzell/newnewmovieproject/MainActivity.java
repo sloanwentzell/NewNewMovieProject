@@ -5,7 +5,7 @@ import android.os.Bundle;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import org.w3c.dom.Text;
+//import org.w3c.dom.Text;
 
 public class MainActivity extends AppCompatActivity {
     Controller controller;
@@ -18,8 +18,8 @@ public class MainActivity extends AppCompatActivity {
         TextView genreTextView = findViewById(R.id.genreTextView);
         TextView synopsisTextView = findViewById(R.id.synopsisTextView);
         TextView runtimeTextView = findViewById(R.id.runtimeTextView);
-        ImageView posterImageView = findViewById(R.id.poster);
+        TextView ratingTextView = findViewById(R.id.ratingTextView);
 
-        controller = new Controller(getApplicationContext(), movieTitleTextView, genreTextView, synopsisTextView, ratingTextView, runtimeTextView, posterImageView);
+        controller = new Controller(getApplicationContext(), movieTitleTextView, genreTextView, synopsisTextView, ratingTextView, runtimeTextView);
     }
 }
