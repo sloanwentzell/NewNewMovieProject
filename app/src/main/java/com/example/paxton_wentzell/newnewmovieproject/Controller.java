@@ -71,17 +71,12 @@ public class Controller {
             movieTitleTextView.setText(movie.title(0));
             ratingTextView.setText(movie.rating(0));
 
-            try {
-                Bitmap bitmap = BitmapFactory.decodeStream((InputStream)new URL(movie.image(0)).getContent());
-                posterImageView.setImageBitmap(bitmap);
-            } catch (MalformedURLException e) {
-                e.printStackTrace();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-
-
+            /*Bitmap maybeMovie = movie.image(0);
+            if (maybeMovie != null) {
+                posterImageView.setImageBitmap(maybeMovie);
+            }*/
         }
+
 
 
 

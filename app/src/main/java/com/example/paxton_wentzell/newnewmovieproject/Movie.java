@@ -1,6 +1,8 @@
 package com.example.paxton_wentzell.newnewmovieproject;
 
 import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -13,6 +15,11 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.IOException;
+import java.io.InputStream;
+import java.net.MalformedURLException;
+import java.net.URL;
+
 public class Movie {
     private String[] id = new String[10];
     private String[] title = new String[10];
@@ -20,7 +27,7 @@ public class Movie {
     private String[] genre = new String[10];
     private String[] runTime = new String[10];
     private String[] synoposis = new String[10];
-    private String[] image = new String[10];
+    public Bitmap[] image = new Bitmap[10];
 
     private String api_key = "c16cb2f114a9e49c24942d6f9590e531";
     private String api_url = "https://api.themoviedb.org/3/movie/now_playing?api_key=" + api_key + "&language=en-US&page=1";
@@ -55,7 +62,11 @@ public class Movie {
                                 getRating(id[x]);
 
                                 synoposis[x] = content.getString("overview");
-                                image[x] = "https://image.tmdb.org/t/p/original" + content.getString("poster_path");
+
+                                //String imageURL = "https://image.tmdb.org/t/p/original" + content.getString("poster_path");
+
+                                //image[x] = BitmapFactory.decodeStream((InputStream) new URL(imageURL).getContent());
+
 
                                 System.out.println(title[x]);
                                 System.out.println(genre[x]);
@@ -232,7 +243,7 @@ public class Movie {
         return synoposis[item];
     }
 
-    String image(int item) {
+    Bitmap image(int item) {
         return image[item]; // Need to figure out how this works.
     }
 
