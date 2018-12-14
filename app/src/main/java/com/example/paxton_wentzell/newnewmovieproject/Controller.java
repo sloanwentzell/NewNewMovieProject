@@ -6,27 +6,13 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import org.w3c.dom.Text;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import java.io.*;
-import java.net.*;
-
-
 public class Controller {
-
-
-
-
-
         private TextView movieTitleTextView;
         private TextView runtimeTextView;
         private TextView synopsisTextView;
         private TextView ratingTextView;
         private TextView genreTextView;
         private ImageView posterImageView;
-
-
 
         private Movie movie;
 
@@ -70,23 +56,6 @@ public class Controller {
             runtimeTextView.setText(movie.runTime(0));
             movieTitleTextView.setText(movie.title(0));
             ratingTextView.setText(movie.rating(0));
-
-            /*Bitmap maybeMovie = movie.image(0);
-            if (maybeMovie != null) {
-                posterImageView.setImageBitmap(maybeMovie);
-            }*/
-        }
-
-
-
-
-
-        private void previous() {
-//            .previous();
-        }
-
-        private void next() {
-//            .next();
         }
 }
 
