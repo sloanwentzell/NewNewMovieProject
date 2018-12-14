@@ -2,6 +2,7 @@ package com.example.paxton_wentzell.newnewmovieproject;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -19,7 +20,9 @@ public class MainActivity extends AppCompatActivity {
         TextView synopsisTextView = findViewById(R.id.synopsisTextView);
         TextView runtimeTextView = findViewById(R.id.runtimeTextView);
         TextView ratingTextView = findViewById(R.id.ratingTextView);
+        Button previousButton = findViewById(R.id.previousButton);
+        Button nextButton = findViewById(R.id.nextButton);
 
-        controller = new Controller(getApplicationContext(), movieTitleTextView, genreTextView, synopsisTextView, ratingTextView, runtimeTextView);
+        controller = new Controller(getApplicationContext(), movieTitleTextView, genreTextView, synopsisTextView, ratingTextView, runtimeTextView, previousButton, nextButton);
     }
 }

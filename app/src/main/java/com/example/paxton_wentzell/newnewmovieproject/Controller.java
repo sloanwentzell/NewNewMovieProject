@@ -19,74 +19,80 @@ public class Controller {
 
 
 
-        private TextView movieTitleTextView;
-        private TextView runtimeTextView;
-        private TextView synopsisTextView;
-        private TextView ratingTextView;
-        private TextView genreTextView;
-        private ImageView posterImageView;
+    private TextView movieTitleTextView;
+    private TextView runtimeTextView;
+    private TextView synopsisTextView;
+    private TextView ratingTextView;
+    private TextView genreTextView;
+    private Button  previousButton;
+    private Button nextButton;
+
+    private int movieNumber = 0;
 
 
 
-        private Movie movie;
+    private Movie movie;
 
-        Controller(Context context, TextView mttv, TextView rstv, TextView stv, TextView rtv, TextView rnt, ImageView img) {
-            movieTitleTextView = mttv;
-            genreTextView = rstv;
-            synopsisTextView = stv;
-            ratingTextView = rtv;
-            runtimeTextView = rnt;
-            posterImageView = img;
+    Controller(Context context, TextView mttv, TextView rstv, TextView stv, TextView rtv, TextView rnt, Button pv, Button nv ) {
+        movieTitleTextView = mttv;
+        genreTextView = rstv;
+        synopsisTextView = stv;
+        ratingTextView = rtv;
+        runtimeTextView = rnt;
+        previousButton = pv;
+        nextButton = nv;
 
-            movie = new Movie(context, this);
+        movie = new Movie(context, this);
 
 
-            updateText();
+        updateText();
 
-            /*previousButton.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
- //                   previous();
-                    updateText();
-                }
-            });
+        previousButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                previous();
+                updateText();
+            }
+        });
 
-            nextButton.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
- //                   next();
-                    updateText();
-                }
-            });*/
+        nextButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                next();
+                updateText();
+            }
+        });
+    }
+
+    public void updateText() {
+
+        //movie.description(0);
+
+
+        synopsisTextView.setText(movie.description(movieNumber));
+        genreTextView.setText(movie.genre(movieNumber));
+        runtimeTextView.setText(movie.runTime(movieNumber));
+        movieTitleTextView.setText(movie.title(movieNumber));
+        ratingTextView.setText(movie.rating(movieNumber));
+
+    }
+
+
+
+
+
+    private void previous() {
+        if (movieNumber >= 0) {
+            movieNumber++;
         }
 
-        public void updateText() {
 
-            //movie.description(0);
+    }
 
-
-            synopsisTextView.setText(movie.description(0));
-            genreTextView.setText(movie.genre(0));
-            runtimeTextView.setText(movie.runTime(0));
-            movieTitleTextView.setText(movie.title(0));
-            ratingTextView.setText(movie.rating(0));
-
-            /*Bitmap maybeMovie = movie.image(0);
-            if (maybeMovie != null) {
-                posterImageView.setImageBitmap(maybeMovie);
-            }*/
+    private void next() {
+        if(movieNumber<=9){
+            movieNumber--;
         }
-
-
-
-
-
-        private void previous() {
-//            .previous();
-        }
-
-        private void next() {
-//            .next();
-        }
+    }
 }
 
