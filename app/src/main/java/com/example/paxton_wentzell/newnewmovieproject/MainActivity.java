@@ -16,8 +16,7 @@ public class MainActivity extends AppCompatActivity {
 
         TextView movieTitleTextView = findViewById(R.id.movieTitleTextView);
         TextView genreTextView = findViewById(R.id.genreTextView);
-        TextView synopsisTextView = findViewById(R.id.synopsisTextView);
-        TextView ratingTextView = findViewById(R.id.ratingTextView);
+        TextView synopsisTextView = findViewById(R.id.synopsµtView);
         TextView runtimeTextView = findViewById(R.id.runtimeTextView);
         ImageView posterImageView = findViewById(R.id.poster);
 
