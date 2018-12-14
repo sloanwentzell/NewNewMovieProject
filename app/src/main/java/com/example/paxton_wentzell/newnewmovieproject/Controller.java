@@ -12,17 +12,15 @@ public class Controller {
         private TextView synopsisTextView;
         private TextView ratingTextView;
         private TextView genreTextView;
-        private ImageView posterImageView;
 
         private Movie movie;
 
-        Controller(Context context, TextView mttv, TextView rstv, TextView stv, TextView rtv, TextView rnt, ImageView img) {
+        Controller(Context context, TextView mttv, TextView rstv, TextView stv, TextView rtv, TextView rnt) {
             movieTitleTextView = mttv;
             genreTextView = rstv;
             synopsisTextView = stv;
             ratingTextView = rtv;
             runtimeTextView = rnt;
-            posterImageView = img;
 
             movie = new Movie(context, this);
 
