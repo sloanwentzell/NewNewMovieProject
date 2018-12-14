@@ -83,7 +83,7 @@ public class Controller {
 
     private void previous() {
         if (movieNumber >= 0) {
-            movieNumber++;
+            movieNumber--;
         }
 
 
@@ -91,7 +91,7 @@ public class Controller {
 
     private void next() {
         if(movieNumber<=9){
-            movieNumber--;
+            movieNumber++;
         }
     }
 }
