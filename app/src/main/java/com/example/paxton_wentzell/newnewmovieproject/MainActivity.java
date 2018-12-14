@@ -2,6 +2,7 @@ package com.example.paxton_wentzell.newnewmovieproject;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import org.w3c.dom.Text;
@@ -18,7 +19,8 @@ public class MainActivity extends AppCompatActivity {
         TextView synopsisTextView = findViewById(R.id.synopsisTextView);
         TextView ratingTextView = findViewById(R.id.ratingTextView);
         TextView runtimeTextView = findViewById(R.id.runtimeTextView);
+        ImageView posterImageView = findViewById(R.id.poster);
 
-        controller = new Controller(getApplicationContext(), movieTitleTextView, genreTextView, synopsisTextView, ratingTextView, runtimeTextView);
+        controller = new Controller(getApplicationContext(), movieTitleTextView, genreTextView, synopsisTextView, ratingTextView, runtimeTextView, posterImageView);
     }
 }

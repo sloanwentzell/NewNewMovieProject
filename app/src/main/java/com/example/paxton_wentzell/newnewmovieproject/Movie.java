@@ -40,26 +40,28 @@ public class Movie {
                     public void onResponse(String response) {
                         // Display the first 500 characters of the response string.
                         try {
-                            JSONObject res = new JSONObject(response);
-                            JSONArray obj = res.getJSONArray("results");
-                            JSONObject content = obj.getJSONObject(0);
-                            id[0] = content.getString("id");
-                            title[0] = content.getString("title");
+                            for (int x = 0; x < 10; x++) {
+                                JSONObject res = new JSONObject(response);
+                                JSONArray obj = res.getJSONArray("results");
+                                JSONObject content = obj.getJSONObject(x);
+                                id[x] = content.getString("id");
+                                title[x] = content.getString("title");
 
-                            JSONArray genreOBJ = content.getJSONArray("genre_ids");
-                            String genreId = genreOBJ.getString(0);
-                            genre[0] = getGenre(genreId);
+                                JSONArray genreOBJ = content.getJSONArray("genre_ids");
+                                String genreId = genreOBJ.getString(0);
+                                genre[x] = getGenre(genreId);
 
-                            getRuntime(id[0]);
-                            getRating(id[0]);
+                                getRuntime(id[x]);
+                                getRating(id[x]);
 
-                            synoposis[0] = content.getString("overview");
-                            image[0] = "https://image.tmdb.org/t/p/original" + content.getString("poster_path");
+                                synoposis[x] = content.getString("overview");
+                                image[x] = "https://image.tmdb.org/t/p/original" + content.getString("poster_path");
 
-                            System.out.println(title[0]);
-                            System.out.println(genre[0]);
-                            System.out.println(synoposis[0]);
-                            System.out.println(image[0]);
+                                System.out.println(title[x]);
+                                System.out.println(genre[x]);
+                                System.out.println(synoposis[x]);
+                                System.out.println(image[x]);
+                            }
 
                             controller.updateText();
 
