@@ -14,11 +14,6 @@ import java.net.*;
 
 
 public class Controller {
-
-
-
-
-
     private TextView movieTitleTextView;
     private TextView runtimeTextView;
     private TextView synopsisTextView;
@@ -26,6 +21,8 @@ public class Controller {
     private TextView genreTextView;
     private Button  previousButton;
     private Button nextButton;
+    private ImageView poster;
+    private MainActivity activity;
 
     private int movieNumber = 0;
 
@@ -33,7 +30,7 @@ public class Controller {
 
     private Movie movie;
 
-    Controller(Context context, TextView mttv, TextView rstv, TextView stv, TextView rtv, TextView rnt, Button pv, Button nv ) {
+    Controller(Context context, TextView mttv, TextView rstv, TextView stv, TextView rtv, TextView rnt, Button pv, Button nv, ImageView p, MainActivity a) {
         movieTitleTextView = mttv;
         genreTextView = rstv;
         synopsisTextView = stv;
@@ -41,8 +38,10 @@ public class Controller {
         runtimeTextView = rnt;
         previousButton = pv;
         nextButton = nv;
+        poster = p;
+        activity = a;
 
-        movie = new Movie(context, this);
+        movie = new Movie(context, this, activity, poster);
 
 
         updateText();
@@ -65,16 +64,12 @@ public class Controller {
     }
 
     public void updateText() {
-
-        //movie.description(0);
-
-
+        movie.getImage(movieNumber);
         synopsisTextView.setText(movie.description(movieNumber));
         genreTextView.setText(movie.genre(movieNumber));
         runtimeTextView.setText(movie.runTime(movieNumber));
         movieTitleTextView.setText(movie.title(movieNumber));
         ratingTextView.setText(movie.rating(movieNumber));
-
     }
 
 

@@ -22,7 +22,8 @@ public class MainActivity extends AppCompatActivity {
         TextView ratingTextView = findViewById(R.id.ratingTextView);
         Button previousButton = findViewById(R.id.previousButton);
         Button nextButton = findViewById(R.id.nextButton);
+        ImageView poster = findViewById(R.id.poster);
 
-        controller = new Controller(getApplicationContext(), movieTitleTextView, genreTextView, synopsisTextView, ratingTextView, runtimeTextView, previousButton, nextButton);
+        controller = new Controller(getApplicationContext(), movieTitleTextView, genreTextView, synopsisTextView, ratingTextView, runtimeTextView, previousButton, nextButton, poster, this);
     }
 }

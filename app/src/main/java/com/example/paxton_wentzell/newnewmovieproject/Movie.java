@@ -3,6 +3,7 @@ package com.example.paxton_wentzell.newnewmovieproject;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.widget.ImageView;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -22,17 +23,21 @@ public class Movie {
     private String[] genre = new String[10];
     private String[] runTime = new String[10];
     private String[] synoposis = new String[10];
-    public Bitmap[] image = new Bitmap[10];
+    public String[] image = new String[10];
 
     private String api_key = "c16cb2f114a9e49c24942d6f9590e531";
     private String api_url = "https://api.themoviedb.org/3/movie/now_playing?api_key=" + api_key + "&language=en-US&page=1";
 
     private Context publicContext;
     private Controller controller;
+    private MainActivity activity;
+    private ImageView poster;
 
-    Movie(Context context, Controller ctrl) {
+    Movie(Context context, Controller ctrl, MainActivity a, ImageView p) {
         publicContext = context;
         controller = ctrl;
+        activity = a;
+        poster = p;
 
         RequestQueue queue = Volley.newRequestQueue(publicContext);
 
@@ -58,7 +63,7 @@ public class Movie {
 
                                 synoposis[x] = content.getString("overview");
 
-                                //String imageURL = "https://image.tmdb.org/t/p/original" + content.getString("poster_path");
+                                image[x] =  "https://image.tmdb.org/t/p/original" + content.getString("poster_path");
 
                                 //image[x] = BitmapFactory.decodeStream((InputStream) new URL(imageURL).getContent());
 
@@ -238,8 +243,14 @@ public class Movie {
         return synoposis[item];
     }
 
-    Bitmap image(int item) {
-        return image[item]; // Need to figure out how this works.
+    String image(int item) {
+        return image[item];
+    }
+
+    void getImage(int item) {
+        Image i = new Image(image[item], activity, poster, publicContext.getApplicationContext());
+        Thread thread = new Thread(i);
+        thread.start();
     }
 
 }
